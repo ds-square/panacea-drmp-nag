@@ -1,0 +1,2736 @@
+{
+	"info_input_agg_Ident": "miniTestbed",
+	"version":1.0,
+	"devices": [
+		{
+			"node_Ident": 1,
+			"hostName": "host1",
+			"type": "Workstation",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Linux",
+            		"family": "Debian",
+            		"generation": "9"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-00-0B",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.1.101.2",
+						"version": "IPV4",
+						"IPPorts": [
+							{
+			                    "number": 23,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Telnet protocol - unencrypted text communications"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 22,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Secure Shell (SSH)"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 80,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Hypertext Transfer Protocol (HTTP)"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 389,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Lightweight Directory Access Protocol (LDAP)"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 2105,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "IBM MiniPay"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	                "reached_nodes": [
+		            	{
+		            		"node": "host6",
+		            		"CVE": [
+		            			{
+				            		"CVE": "CVE-2005-0469",
+				            		"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-low-low",
+				            		"AV": "network"
+				            	}
+				            ]
+		            	},
+		            	{
+		            		"node": "host2",
+		            		"CVE": [
+		            			{
+				                    "CVE": "CVE-2009-1645",
+				            		"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "low-none-none",
+				            		"AV": "network"
+		            			}
+		            		]
+		            	},
+		            	{
+		            		"node": "int1",
+		            		"CVE": [
+		            			{
+				            		"CVE": "CVE-2004-2687",
+				            		"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "low-low-low",
+				            		"AV": "network"
+		            			}
+		            		]
+		            		
+		            	},
+		            	{
+		            		"node": "ced1",
+		            		"CVE": [
+		            			{
+				            		"CVE": "CVE-2010-2075",
+				            		"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-low-low",
+				            		"AV": "network"
+		            			}
+		            		]	
+		            	} 
+			        ]
+	            }
+	        ],
+			"local_vulnerabilities": {
+				"ids": ["CVE-2005-0469", "CVE-2011-0766", "CVE-2018-7243", "CVE-2014-6232", "CVE-2019-4364"],
+				"vuln_details": [
+					{
+	            		"CVE": "CVE-2005-0469",
+	            		"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-high-low",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2011-0766",
+	            		"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-low-low",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2018-7243",
+	            		"PRE": "user",
+	            		"POST": "root",
+	            		"CIA": "high-high-low",
+	            		"AV": "local"
+		            },
+		             {
+	            		"CVE": "CVE-2014-6232",
+	            		"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-none-low",
+	            		"AV": "adjacent"
+		            }
+
+				],
+				"services": [
+						{
+							"name": "telnet_*",
+							"port": 23,
+							"protocol": "TCP",
+							"CVE": "CVE-2005-0469"
+						},
+						{
+							"name":"ssh_1.2.6",
+							"port": 22,
+							"protocol": "TCP",
+							"CVE": "CVE-2011-0766"
+						},
+						{
+							"name": "schneider-electric:66074_mge_network_management_card_transverse",
+							"port": 80,
+							"protocol": "TCP", 
+							"CVE": "CVE-2018-7243"
+						},
+						{
+							"name":"ldap_2.8.17",
+							"port": 389,
+							"protocol": "UDP", 
+							"CVE": "CVE-2014-6232"
+						},
+						{
+							"name": "ibm-maximo-for-aviation_7.6.2",
+							"port": 2105,
+							"protocl": "UDP", 
+							"CVE": "CVE-2019-4364"
+						}
+					]			
+			}
+		},
+		{
+			"node_Ident": 2,
+			"hostName": "host2",
+			"type": "Workstation",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Microsoft",
+            		"family": "Windows",
+            		"generation": "7"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-05-0B",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.1.102.2",
+						"version": "IPV4",
+						"IPPorts": [
+							{
+			                    "number": 23,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Telnet protocol - unencrypted text communications"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 80,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Hypertext Transfer Protocol (HTTP)"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 443,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Hypertext Transfer Protocol over TLS/SSL (HTTPS)"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 9325,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Mstream"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	            	 "reached_nodes": [
+		            	{
+		            		"node": "VR2",
+		            		"CVE": [
+		            			{
+		            				"CVE": "CVE-2007-5423",
+				            		"PRE": "user",
+				            		"POST": "root",
+				            		"CIA": "high-low-low",
+				            		"AV": "network"
+		            			}
+		            		]	
+		            	},
+		            	{
+		            		"node": "cis1",
+		            		"CVE": [
+		            			{		
+				            		"CVE": "CVE-2010-2075",
+				            		"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-high-none",
+				            		"AV": "network"
+		            			}
+		            		]
+		            	},
+		            	{
+		            		"node": "host3",
+		            		"CVE": [
+		            			{
+				            		"CVE": "CVE-2007-5419",
+				            		"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-low-low",
+				            		"AV": "network"
+		            			}
+		            		]
+		            	},
+		            	{
+		            		"node": "VR1",
+		            		"CVE": [
+					            {
+				               		"CVE": "CVE-2005-0469",
+				            		"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-high-low",
+				            		"AV": "adjacent"
+					            }
+		            		]
+		            	}
+			        ]
+	            }  
+			],
+			"local_vulnerabilities": {
+				"ids": ["CVE-2005-0469", "CVE-2014-2731", "CVE-2013-1100", "CVE-2009-1645"],
+				"vuln_details": [
+					{
+	            		"CVE": "CVE-2005-0469",
+	            		"PRE": "user",
+	            		"POST": "root",
+	            		"CIA": "high-high-low",
+	            		"AV": "local"
+		            },
+		            {
+	            		"CVE": "CVE-2014-2731",
+	            		"PRE": "user",
+	            		"POST": "root",
+	            		"CIA": "high-none-none",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2013-1100",
+	            		"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-high-low",
+	            		"AV": "physical"
+		            }
+				],
+				"services": [
+					
+						{
+							"name":"telnet_*",
+							"port": 23,
+							"protocol": "TCP", 
+							"CVE": "CVE-2005-0469"
+						},
+						{
+							"name":"siemens-sinema_server_12.0",
+							"port": 80,
+							"protocol": "TCP", 
+							"CVE": "CVE-2014-2731"
+						},
+						{
+							"name": "cisco-ios_*",
+							"port": 443,
+							"protocol": "UDP", 
+							"CVE": "CVE-2013-1100"
+						},
+						{
+							"name":"easy-rm-mp3-converter_3.0.0.7",
+							"port": 9325,
+							"protocol": "UDP",
+							"CVE": "CVE-2009-1645"
+						}
+					
+				]
+			}
+		},
+		{
+			"node_Ident": 3,
+			"hostName": "host3",
+			"type": "Workstation",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Linux",
+            		"family": "Ubuntu",
+            		"generation": "16.10"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-08-3B",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.1.103.2",
+						"version": "IPV4",
+						"IPPorts": [
+							{
+			                    "number": 23,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Telnet protocol - unencrypted text communications"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 80,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Hypertext Transfer Protocol (HTTP)"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 139,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "NetBIOS Session Service"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 1104,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "HP Lexmark spooler, If this service is not installed beware could be torjan: RexxRave"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 631,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Internet Printing Protocol (IPP)"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+					},
+			        "reached_nodes": [
+                        {
+		            		"node": "VR1",
+		            		"CVE": [
+					            {
+				               		"CVE": "CVE-2005-0469",
+				            		"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-high-low",
+				            		"AV": "adjacent"
+					            }
+		            		]
+		            	},
+		            	{
+		            		"node": "host1",
+		            		"CVE": [
+		            			{
+				            	    "CVE": "CVE-2007-5423",
+				            		"PRE": "user",
+				            		"POST": "root",
+				            		"CIA": "high-low-low",
+				            		"AV": "network"
+		            			}
+		            		]	
+		            	}
+		            ]
+			    }
+			],
+			"local_vulnerabilities": {
+				"ids": ["CVE-2005-0469", "CVE-2007-5419", "CVE-2002-1712", "CVE-2008-3544"],
+				"vuln_details": [
+					{
+	            		"CVE": "CVE-2005-0469",
+	            		"PRE": "user",
+	            		"POST": "user",
+	            		"CIA": "high-high-high",
+	            		"AV": "local"
+		            },
+		            {
+	            		"CVE": "CVE-2007-5419",
+						"PRE": "none",
+	            		"POST": "user",
+	            		"CIA": "high-low-low",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2002-1712",
+	            		"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "none-low-low",
+	            		"AV": "network"
+		            }
+				],
+				"services": [
+					
+						{
+							"name": "telnet_*",
+							"port": 23,
+							"protocol": "TCP", 
+							"CVE": "CVE-2005-0469"
+						},
+						{
+							"name":"3crwe554g72t",
+							"port": 80,
+							"protocol": "TCP", 
+							"CVE": "CVE-2007-5419"
+						},
+						{
+							"name": "microsoft-windows-2000-sp1",
+							"port": 139,
+							"protocol": "TCP", 
+							"CVE": "CVE-2002-1712"
+						},
+						{
+							"name":"openview-network-node-manager_7.01",
+							"port": 1104,
+							"protocol": "UDP", 
+							"CVE": "CVE-2008-3544"
+						}
+					]			
+			}
+		},
+		{
+			"node_Ident": 4,
+			"hostName": "host4",
+			"type": "Workstation",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Microsoft",
+            		"family": "Windows",
+            		"generation": "10"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-08-3B",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.1.102.3",
+						"version": "IPV4",
+						"IPPorts": [
+							{
+			                    "number": 23,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Telnet protocol - unencrypted text communications"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 80,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Hypertext Transfer Protocol (HTTP)"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 111,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Sun Remote Procedure Call"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 1104,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "HP Lexmark spooler, If this service is not installed beware could be torjan: RexxRave"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 2049,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "shilp"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	            	"reached_nodes": [
+		            	{
+		            		"node": "host2",
+		            		"CVE": [
+		            			{
+				            		"CVE": "CVE-2014-2731",
+				            		"PRE": "user",
+				            		"POST": "root",
+				            		"CIA": "high-none-none",
+				            		"AV": "network"
+		            			}
+		            		]
+		            	},
+		            	{
+		            		"node": "VR1",
+		            		"CVE": [
+					            {
+				               		"CVE": "CVE-2005-0469",
+				            		"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-high-low",
+				            		"AV": "adjacent"
+					            }
+		            		]
+		            	}
+		            ]
+			    }
+			],
+			"local_vulnerabilities": {
+				"ids": ["CVE-2005-0469", "CVE-2004-2549", "CVE-2017-8779", "CVE-2007-4241", "CVE-2006-5780"],
+				"vuln_details": [
+					{
+	            		"CVE": "CVE-2005-0469",
+	            		"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-low-high",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2004-2549",
+						"PRE": "none",
+	            		"POST": "user",
+	            		"CIA": "low-low-low",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2017-8779",
+	            		"PRE": "user",
+	            		"POST": "user",
+	            		"CIA": "high-high-high",
+	            		"AV": "local"
+		            },
+		            {
+	            		"CVE": "CVE-2007-4241",
+	            		"PRE": "none",
+	            		"POST": "user",
+	            		"CIA": "high-low-high",
+	            		"AV": "adjacent"
+		            }
+				],
+				"services": [
+					
+						{
+							"name":"telnet_*",
+							"port": 23,
+							"protocol": "TCP",
+							"CVE": "CVE-2005-0469"
+						},
+						{
+							"name": "nortel-wlan-access-point_2220",
+							"port": 80,
+							"protocol": "TCP", 
+							"CVE": "CVE-2004-2549"
+						},
+						{
+							"name":"libtirpc_1.4.3",
+							"port": 111,
+							"protocol": "TCP",
+							"CVE": "CVE-2017-8779"
+						},
+						{
+							"name":"hp-ux_11.11",
+							"port": 1104,
+							"protocol": "UDP", 
+							"CVE": "CVE-2007-4241"
+						},
+						{
+							"name":"omni-nfs-server_5.2",
+							"port": 2049,
+							"protocol": "UDP",
+							"CVE": "CVE-2006-5780"
+						}
+					]			
+			}
+		},
+		{
+			"node_Ident": 6,
+			"hostName": "host6",
+			"type": "Workstation",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Linux",
+            		"family": "Ubuntu",
+            		"generation": "16.04"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-08-7B",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.1.101.3",
+						"version": "IPV4",
+						"IPPorts": [
+							{
+			                    "number": 23,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Telnet protocol - unencrypted text communications"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 135,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "DCE endpoint resolution"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 4500,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "IPsec NAT traversal (RFC 3947)"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 5355,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "LLMNR - Link-Local Multicast Name Resolution"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	            	"reached_nodes": [
+		            	{
+		            		"node": "host1",
+		            		"CVE": [
+		            			{
+				            		"CVE": "CVE-2014-6232",
+				            		"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-none-low",
+				            		"AV": "adjacent"
+		            			}
+		            		]
+		            	},
+		            	{
+		            		"node": "host4",
+		            		"CVE": [
+		            			{
+				            		"CVE": "CVE-2004-2549",
+									"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "low-low-low",
+				            		"AV": "network"
+		            			}
+		            		]
+		            	},
+		            	{
+		            		"node": "int1",
+		            		"CVE": [
+		            			{
+				            		"CVE": "CVE-2004-2687",
+				            		"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "low-low-low",
+				            		"AV": "network"
+		            			}
+		            		]
+		            	},
+		            	{
+		            		"node": "VR1",
+		            		"CVE": [
+					            {
+				               		"CVE": "CVE-2005-0469",
+				            		"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-high-low",
+				            		"AV": "adjacent"
+					            }
+		            		]
+		            	}
+		            ]
+			    }
+			],
+			"local_vulnerabilities": {
+				"ids": ["CVE-2005-0469", "CVE-2002-1561", "CVE-2008-5828"],
+				"vuln_details": [
+					{
+	            		"CVE": "CVE-2005-0469",
+	            		"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-low-high",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2002-1561",
+						"PRE": "user",
+	            		"POST": "user",
+	            		"CIA": "none-none-low",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2008-5828",
+	            		"PRE": "none",
+	            		"POST": "user",
+	            		"CIA": "high-high-high",
+	            		"AV": "physical"
+		            }
+				],
+				"services": [
+					
+						{
+							"name":"telnet_*",
+							"port": 23,
+							"protocol": "TCP", 
+							"CVE": "CVE-2005-0469"
+						},
+						{
+							"name":"microsoft-windows_2000",
+							"port": 135,
+							"protocol": "TCP", 
+							"CVE": "CVE-2002-1561"
+						},
+						{
+							"name":"windows-live-messenger_8.0",
+							"port": 5355,
+							"protocol": "UDP", 
+							"CVE": "CVE-2008-5828"
+						}
+					
+				]			
+			}
+		},
+		{
+			"node_Ident": 9,
+			"hostName": "VR1",
+			"type": "Router",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Alpine",
+            		"family": "Alpine Linux",
+            		"generation": "3.8"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-08-7C",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.1.101.1",
+						"version": "IPV4",
+						"IPPorts": [
+	                  		{
+			                    "number": 22,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Secure Shell (SSH)"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	             	"reached_nodes": [
+		            	{
+		            		"node": "host1",
+		            		"CVE": [
+					            {
+				            		"CVE": "CVE-2007-5419",
+									"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-low-low",
+				            		"AV": "network"
+					            }
+		            		]
+		            	},
+		            	{
+		            		"node": "host6",
+		            		"CVE": [
+		            			{
+				            		"CVE": "CVE-2002-1561",
+									"PRE": "user",
+				            		"POST": "user",
+				            		"CIA": "none-none-low",
+				            		"AV": "network"
+		            			}
+		            		]
+		            	}
+		            ]
+	            },
+	            {
+					"name": "eth1",
+					"macAddress": "02-00-AA-AA-08-7A",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.1.102.1",
+						"version": "IPV4",
+						"IPPorts": [
+							{
+			                    "number": 23,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Telnet protocol - unencrypted text communications"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+					},
+                  	"reached_nodes": [
+		            	{
+		            		"node": "host2",
+		            		"CVE": [
+					            {
+				            		"CVE": "CVE-2014-2731",
+				            		"PRE": "user",
+				            		"POST": "root",
+				            		"CIA": "high-none-none",
+				            		"AV": "network"
+					            }
+		            		]
+		            	},
+		            	{
+		            		"node": "host4",
+		            		"CVE": [
+		            			{
+				            		"CVE": "CVE-2007-4241",
+				            		"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-low-high",
+				            		"AV": "adjacent"
+		            			}
+		            		]
+		            	}
+	           		]
+	            },
+             	{
+					"name": "eth2",
+					"macAddress": "02-00-AA-AA-08-2A",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.1.103.1",
+						"version": "IPV4",
+						"IPPorts": [
+							{
+			                    "number": 22,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Telnet protocol - unencrypted text communications"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	                },
+		            "reached_nodes": [
+			            {
+		            		"node": "host3",
+		            		"CVE": [
+					            {
+				            		"CVE": "CVE-2007-5419",
+									"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-low-low",
+				            		"AV": "network"
+					            }
+		            		]
+		            	}
+	           		]
+	            },
+	            {
+					"name": "eth3",
+					"macAddress": "02-00-AA-AA-08-2A",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.1.103.1",
+						"version": "IPV4",
+						"IPPorts": [
+	                  	]
+	                },
+	                "reached_nodes": [
+			            {
+		            		"node": "FW",
+		            		"CVE": [
+					            {
+				               		"CVE": "CVE-2015-04459",
+				            		"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-low-none",
+				            		"AV": "adjacent"
+					            }
+		            		]
+		            	}
+	           		]
+	            },
+	            {
+					"name": "eth4",
+					"macAddress": "02-00-AA-AA-08-2A",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.252",
+						"address": "10.1.133.1",
+						"version": "IPV4",
+						"IPPorts": [
+	                  	]
+	                },
+	                 "reached_nodes": [
+			            {
+	                		"node": "VR2",
+	                		"CVE": [
+	                			{
+				               		"CVE": "CVE-2005-0469",
+				            		"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-high-low",
+				            		"AV": "adjacent"
+	                			},
+					            {
+				            		"CVE": "CVE-2011-0766",
+									"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "none-none-low",
+				            		"AV": "adjacent"
+					            }
+	                		]
+	                	}
+	           		]
+	            }
+			],
+			"local_vulnerabilities": {
+				"ids": ["CVE-2005-0469", "CVE-2011-0766"],
+				"vuln_details": [
+					{
+	               		"CVE": "CVE-2005-0469",
+	            		"PRE": "none",
+	            		"POST": "user",
+	            		"CIA": "high-high-low",
+	            		"AV": "adjacent"
+		            },
+		            {
+	            		"CVE": "CVE-2011-0766",
+						"PRE": "none",
+	            		"POST": "user",
+	            		"CIA": "none-none-low",
+	            		"AV": "network"
+		            }
+				],
+				"services": [
+					
+						{
+							"name":"telnet_*",
+							"port": 23,
+							"protocol": "TCP", 
+							"CVE": "CVE-2005-0469"
+						},
+						{
+							"name":"ssh_1.2.6",
+							"port": 22,
+							"protocol": "TCP", 
+							"CVE": "CVE-2011-0766"
+						}
+					
+				]			
+			}
+		},
+		{
+			"node_Ident": 10,
+			"hostName": "int1",
+			"type": "Server",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Linux",
+            		"family": "Ubuntu",
+            		"generation": "18.04 LTS"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-08-3B",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.2.20.2",
+						"version": "IPV4",
+						"IPPorts": [
+							{
+			                    "number": 23,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Telnet protocol - unencrypted text communications"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 162,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 80,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 21,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 443,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 1104,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "HP Lexmark spooler, If this service is not installed beware could be torjan: RexxRave"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 5353,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Multicast DNS (MDNS)"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 512,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 123,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 3268,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	            	"reached_nodes": [
+		            	{
+		            		"node": "ced1",
+		            		"CVE": [
+					            {
+				            		"CVE": "CVE-2017-52349",
+									"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-low-none",
+				            		"AV": "network"
+					            }
+		            		]
+		            	},
+		            	{
+		            		"node": "cis1",
+		            		"CVE": [
+					            {
+				            		"CVE": "CVE-2006-23249",
+									"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-high-low",
+				            		"AV": "network"
+					            }
+		            		]
+		            	},
+		            	{
+	                		"node": "VR2",
+	                		"CVE": [
+	                			{
+				               		"CVE": "CVE-2005-0469",
+				            		"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-high-low",
+				            		"AV": "adjacent"
+	                			},
+					            {
+				            		"CVE": "CVE-2011-0766",
+									"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "none-none-low",
+				            		"AV": "adjacent"
+					            }
+	                		]
+	                	}
+	           		]
+	            }
+	        ],
+			"local_vulnerabilities": {
+				"ids": ["CVE-2008-333", "CVE-2014-25437", "CVE-2011-3445"],
+				"vuln_details": [
+					{
+	            		"CVE": "CVE-2008-333",
+	            		"PRE": "user",
+	            		"POST": "user",
+	            		"CIA": "high-high-high",
+	            		"AV": "local"
+		            },
+		            {
+	            		"CVE": "CVE-2008-333",
+						"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "low-none-low",
+	            		"AV": "network"
+		            },
+		             {
+	            		"CVE": "CVE-2011-3445",
+						"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-none-low",
+	            		"AV": "physical"
+		            }
+				],
+				"services": [
+					
+						{
+							"name":"telnet_*",
+							"port": 23,
+							"protocol": "TCP", 
+							"CVE": "CVE-2008-333"
+						},
+						{
+							"name":"ssh_1.2.6",
+							"port": 22,
+							"protocol": "TCP", 
+							"CVE": "CVE-2014-25437"
+						}
+					
+				]			
+			}
+		},
+		{
+			"node_Ident": 12,
+			"hostName": "ced1",
+			"type": "Server",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Linux",
+            		"family": "Fedora",
+            		"generation": "30"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-07-9B",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.2.30.2",
+						"version": "IPV4",
+						"IPPorts": [
+	                  		{
+			                    "number": 22,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 80,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 135,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 138,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 443,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 3389,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 631,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "HP Lexmark spooler, If this service is not installed beware could be torjan: RexxRave"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 5353,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Multicast DNS (MDNS)"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 9325,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 4500,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 218,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 1104,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	            	"reached_nodes": [
+		            	{
+	                		"node": "VR2",
+	                		"CVE": [
+	                			{
+				               		"CVE": "CVE-2005-0469",
+				            		"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-high-low",
+				            		"AV": "adjacent"
+	                			},
+					            {
+				            		"CVE": "CVE-2011-0766",
+									"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "none-none-low",
+				            		"AV": "adjacent"
+					            }
+	                		]
+	                	},
+		            	{
+		            		"node": "VR1",
+		            		"CVE": [
+					            {
+					        		"CVE": "CVE-2011-0766",
+									"PRE": "none",
+					        		"POST": "user",
+					        		"CIA": "none-none-low",
+					        		"AV": "network"
+					            }
+		            		]
+		            	}
+	           		]
+	            }
+	        ],
+			"local_vulnerabilities": {
+				"ids": ["CVE-2018-376", "CVE-2009-23437", "CVE-2018-1245"],
+				"vuln_details": [
+					{
+	            		"CVE": "CVE-2018-376",
+	            		"PRE": "user",
+	            		"POST": "root",
+	            		"CIA": "high-high-low",
+	            		"AV": "local"
+		            },
+		            {
+	            		"CVE": "CVE-2009-23437",
+						"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "low-low-low",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2018-1245",
+						"PRE": "none",
+	            		"POST": "user",
+	            		"CIA": "low-none-low",
+	            		"AV": "physical"
+		            },
+		            {
+	            		"CVE": "CVE-2017-52349",
+						"PRE": "none",
+	            		"POST": "user",
+	            		"CIA": "high-low-none",
+	            		"AV": "network"
+		            }
+				],
+				"services": [
+				]			
+			}
+		},
+		{
+			"node_Ident": 13,
+			"hostName": "ext1",
+			"type": "Server",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Linux",
+            		"family": "CentOS",
+            		"generation": "7"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-23-9B",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.2.40.2",
+						"version": "IPV4",
+						"IPPorts": [
+	                  		{
+			                    "number": 22,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 80,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 443,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 2000,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 512,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 514,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 218,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 1900,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	            	"reached_nodes": [
+		            	{
+		            		"node": "ext2",
+		            		"CVE": [
+					            {
+				            		"CVE": "CVE-2017-52349",
+									"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-low-none",
+				            		"AV": "network"
+					            }
+		            		]
+		            	},
+		            	{
+		            		"node": "VR3",
+		            		"CVE": [
+					            {
+				            		"CVE": "CVE-2006-23249",
+									"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-high-low",
+				            		"AV": "adjacent"
+					            }
+		            		]
+		            	}
+	           		]
+	            }
+	        ],
+	        "local_vulnerabilities": {
+				"ids": ["CVE-2019-36", "CVE-2005-37", "CVE-2008-1435", "CVE-2008-8928"],
+				"vuln_details": [
+					{
+	            		"CVE": "CVE-2019-36",
+	            		"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-high-low",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2005-37",
+						"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "low-low-low",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2008-1435",
+						"PRE": "user",
+	            		"POST": "root",
+	            		"CIA": "low-none-low",
+	            		"AV": "adjacent"
+		            },
+		            {
+	            		"CVE": "CVE-2008-8928",
+						"PRE": "none",
+	            		"POST": "user",
+	            		"CIA": "high-high-none",
+	            		"AV": "physical"
+		            }
+				],
+				"services": [
+				]			
+			}
+		},
+		{
+			"node_Ident": 14,
+			"hostName": "ext2",
+			"type": "Server",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Linux",
+            		"family": "Ubuntu",
+            		"generation": "16.04 LTS"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-02-9B",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.2.40.3",
+						"version": "IPV4",
+						"IPPorts": [
+	                  		{
+			                    "number": 22,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 23,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 443,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 111,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 512,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 514,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 5888,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 61748,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	            	"reached_nodes": [
+		            	{
+		            		"node": "ext1",
+		            		"CVE": [
+					            {
+				            		"CVE": "CVE-2008-1435",
+									"PRE": "user",
+				            		"POST": "root",
+				            		"CIA": "low-none-low",
+				            		"AV": "adjacent"
+					            },
+					            {
+				            		"CVE": "CVE-2019-36",
+				            		"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-high-low",
+				            		"AV": "network"
+					            }
+		            		]
+		            	},
+		            	{
+	                		"node": "VR3",
+	                		"CVE": [
+	                			{
+				            		"CVE": "CVE-2006-23249",
+									"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-high-low",
+				            		"AV": "adjacent"
+	                			}
+	                		]
+	                	}
+	           		]
+	            }
+	        ],
+	        "local_vulnerabilities": {
+				"ids": ["CVE-2017-52349", "CVE-2009-3347", "CVE-2018-441", "CVE-2019-4111"],
+				"vuln_details": [
+					{
+	            		"CVE": "CVE-2017-52349",
+						"PRE": "none",
+	            		"POST": "user",
+	            		"CIA": "high-low-none",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2009-3347",
+						"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-low-high",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2018-441",
+						"PRE": "none",
+	            		"POST": "none",
+	            		"CIA": "high-high-high",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2019-4111",
+						"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-high-none",
+	            		"AV": "physical"
+		            }
+				],
+				"services": [
+				]			
+			}
+		},
+		{
+			"node_Ident": 15,
+			"hostName": "cis1",
+			"type": "Server",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Linux",
+            		"family": "Ubuntu",
+            		"generation": "14.04 LTS"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-02-9B",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.2.40.3",
+						"version": "IPV4",
+						"IPPorts": [
+	                  		{
+			                    "number": 22,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 23,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 80,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 443,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 111,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 514,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 233,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 4334,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 534,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 4563,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "UDP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	            	"reached_nodes": [
+		            	{
+		            		"node": "ced1",
+		            		"CVE": [
+					            {
+				            		"CVE": "CVE-2008-333",
+									"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "low-none-low",
+				            		"AV": "network"
+					            }
+		            		]
+		            	},
+		            	{
+	                		"node": "VR3",
+	                		"CVE": [
+	                			{
+				            		"CVE": "CVE-2006-23249",
+									"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-high-low",
+				            		"AV": "adjacent"
+	                			}
+	                		]
+	                	}
+	           		]
+	            }
+	        ],
+	        "local_vulnerabilities": {
+				"ids": ["CVE-2016-727", "CVE-2019-33", "CVE-2010-2075", "CVE-2006-23249"],
+				"vuln_details": [
+					{
+	            		"CVE": "CVE-2016-727",
+						"PRE": "user",
+	            		"POST": "user",
+	            		"CIA": "high-high-none",
+	            		"AV": "local"
+		            },
+		            {
+	            		"CVE": "CVE-2019-33",
+						"PRE": "user",
+	            		"POST": "root",
+	            		"CIA": "high-low-high",
+	            		"AV": "local"
+		            },
+		            {
+	            		"CVE": "CVE-2010-2075",
+	            		"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-high-none",
+	            		"AV": "network"
+		            },
+		            {
+	            		"CVE": "CVE-2006-23249",
+						"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-high-low",
+	            		"AV": "network"
+		            }
+				],
+				"services": [
+				]			
+			}
+		},
+		{
+			"node_Ident": 15,
+			"hostName": "VR2",
+			"type": "Router",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Alpine",
+            		"family": "Alpine Linux",
+            		"generation": "3.8"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-08-7C",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.252",
+						"address": "10.1.133.2",
+						"version": "IPV4",
+						"IPPorts": [
+	                  		{
+			                    "number": 80,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Hypertext Transfer Protocol (HTTP)"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		},
+	                  		{
+			                    "number": 443,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Hypertext Transfer Protocol over TLS/SSL (HTTPS)"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	            	"reached_nodes": [
+		            	{
+		            		"node": "VR1",
+		            		"CVE": [
+					            {
+				               		"CVE": "CVE-2005-0469",
+				            		"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-high-low",
+				            		"AV": "adjacent"
+					            }
+		            		]
+		            	}
+	           		]
+	            },
+	            {
+					"name": "eth1",
+					"macAddress": "02-00-AA-AA-02-7A",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.2.30.1",
+						"version": "IPV4",
+						"IPPorts": [
+	                  		{
+			                    "number": 22,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	            	"reached_nodes": [
+	           		]
+	            },
+             	{
+					"name": "eth2",
+					"macAddress": "02-00-AA-AA-08-1A",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.2.20.1",
+						"version": "IPV4",
+						"IPPorts": [
+	                  		{
+			                    "number": 80,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	                },
+	              	"reached_nodes": [
+	           		]
+	            },
+	            {
+					"name": "eth3",
+					"macAddress": "02-00-AA-AA-08-2A",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.252",
+						"address": "10.1.144.2",
+						"version": "IPV4",
+						"IPPorts": [
+	                  		{
+			                    "number": 22,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	                },
+	                "reached_nodes": [
+		            	{
+		            		"node": "FW",
+		            		"CVE": [
+					            {
+				            		"CVE": "CVE-2010-666",
+									"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "low-none-low",
+				            		"AV": "adjacent"
+					            },
+					            {
+				               		"CVE": "CVE-2015-04459",
+				            		"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-low-none",
+				            		"AV": "adjacent"
+					            }
+		            		]
+		            	}
+	           		]
+	            }
+			],
+			"local_vulnerabilities": {
+				"ids": ["CVE-2007-5423", "CVE-2019-132", "CVE-2009-8849", "CVE-2006-5549"],
+				"vuln_details": [
+					{
+						"CVE": "CVE-2007-5423",
+	            		"PRE": "user",
+	            		"POST": "root",
+	            		"CIA": "high-low-low",
+	            		"AV": "network"
+		            },
+		            {
+                        "CVE": "CVE-2019-132",
+	            		"PRE": "none",
+	            		"POST": "user",
+	            		"CIA": "low-low-low",
+	            		"AV": "adjacent"
+		            },
+		            {
+	            		"CVE": "CVE-2009-8849",
+						"PRE": "none",
+	            		"POST": "user",
+	            		"CIA": "low-low-none",
+	            		"AV": "adjacent"
+		            },
+		            {
+	            		"CVE": "CVE-2006-5549",
+						"PRE": "none",
+	            		"POST": "user",
+	            		"CIA": "high-high-low",
+	            		"AV": "physical"
+		            }
+				],
+				"services": [
+				]			
+			}
+		},
+		{
+			"node_Ident": 17,
+			"hostName": "VR3",
+			"type": "Router",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Alpine",
+            		"family": "Alpine Linux",
+            		"generation": "3.8"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-08-7C",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.2.50.1",
+						"version": "IPV4",
+						"IPPorts": [
+	                  		{
+			                    "number": 22,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "Sun Remote Procedure Call"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	            	"reached_nodes": [
+	           		]
+	            },
+	            {
+					"name": "eth1",
+					"macAddress": "02-00-AA-AA-02-7A",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.252",
+						"address": "10.1.166.2",
+						"version": "IPV4",
+						"IPPorts": [
+	                  	]
+	            	},
+	               "reached_nodes": [
+		            	{
+		            		"node": "FW",
+		            		"CVE": [
+					            {
+				            		"CVE": "CVE-2010-666",
+									"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "low-none-low",
+				            		"AV": "adjacent"
+					            },
+					            {
+				               		"CVE": "CVE-2015-04459",
+				            		"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-low-none",
+				            		"AV": "adjacent"
+					            }
+		            		]
+		            	}
+	           		]
+	            },
+             	{
+					"name": "eth2",
+					"macAddress": "02-00-AA-AA-08-1A",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "10.2.40.1",
+						"version": "IPV4",
+						"IPPorts": [
+	                  		{
+			                    "number": 80,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	                },
+	                "reached_nodes": [
+	                	{
+	                		"node": "ext1",
+	                		"CVE": [
+	                			{
+				                    "CVE": "CVE-2008-1435",
+									"PRE": "user",
+				            		"POST": "root",
+				            		"CIA": "low-none-low",
+				            		"AV": "adjacent"
+	                			}
+	                		]
+	                	}
+	                ]
+	            }
+			],
+		   "local_vulnerabilities": {
+				"ids": ["CVE-2006-23249", "CVE-2019-1222"],
+				"vuln_details": [
+					{
+	            		"CVE": "CVE-2006-23249",
+						"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-high-low",
+	            		"AV": "adjacent"
+		            },
+		            {
+                        "CVE": "CVE-2019-1222",
+	            		"PRE": "none",
+	            		"POST": "none",
+	            		"CIA": "high-high-high",
+	            		"AV": "physical"
+		            }
+				],
+				"services": [
+				]			
+			}
+		},
+		{
+			"node_Ident": 18,
+			"hostName": "FW",
+			"type": "Firewall",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Alpine",
+            		"family": "Alpine Linux",
+            		"generation": "3.8"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "mara",
+		              "fullName": "mara sorella",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-08-3C",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "140.50.20.20",
+						"version": "IPV4",
+						"IPPorts": [      		
+	                  	]
+	            	}
+	            },
+	            {
+					"name": "eth1",
+					"macAddress": "02-00-AA-AA-08-7A",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.252",
+						"address": "10.1.166.1",
+						"version": "IPV4",
+						"IPPorts": [
+	                  		{
+			                    "number": 22,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	            	},
+	            	"reached_nodes": [
+	                	{
+	                		"node": "VR3",
+	                		"CVE": [
+	                			{
+				            		"CVE": "CVE-2006-23249",
+									"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-high-low",
+				            		"AV": "adjacent"
+	                			}
+	                		]
+	                	}
+	                ]
+	            },
+             	{
+					"name": "eth2",
+					"macAddress": "02-00-AA-AA-08-2A",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.252",
+						"address": "10.1.155.1",
+						"version": "IPV4",
+						"IPPorts": [
+	                  	]
+	                },
+	                "reached_nodes": [
+	                	{
+	                		"node": "VR2",
+	                		"CVE": [
+	                			{
+				               		"CVE": "CVE-2005-0469",
+				            		"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-high-low",
+				            		"AV": "adjacent"
+	                			},
+					            {
+				            		"CVE": "CVE-2011-0766",
+									"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "none-none-low",
+				            		"AV": "adjacent"
+					            }
+	                		]
+	                	}
+	                ]
+	            },
+	            {
+					"name": "eth3",
+					"macAddress": "02-00-AA-AA-08-2A",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.252",
+						"address": "10.1.144.1",
+						"version": "IPV4",
+						"IPPorts": [
+	                  		{
+			                    "number": 80,
+			                    "application": {
+			                      "runningState": "Running",
+			                      "description": "to be completed"
+			                    },
+	                    		"transportProtocol": "TCP",
+	                   			 "state": "open"
+	                  		}
+	                  	]
+	                },
+	                "reached_nodes": [
+	                	{
+	                		"node": "VR2",
+	                		"CVE": [
+	                			{
+				               		"CVE": "CVE-2019-132",
+				            		"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "low-low-low",
+				            		"AV": "adjacent"
+	                			},
+					            {
+				            		"CVE": "CVE-2009-8849",
+									"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "low-low-none",
+				            		"AV": "adjacent"
+					            }
+	                		]
+	                	}
+	                ]
+	            }
+			],
+		   "local_vulnerabilities": {
+				"ids": ["CVE-2015-04459", "CVE-2010-666"],
+				"vuln_details": [
+					{
+	               		"CVE": "CVE-2015-04459",
+	            		"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "high-low-none",
+	            		"AV": "adjacent"
+		            },
+		            {
+	            		"CVE": "CVE-2010-666",
+						"PRE": "none",
+	            		"POST": "root",
+	            		"CIA": "low-none-low",
+	            		"AV": "adjacent"
+		            }
+				],
+				"services": [
+				]			
+			}
+		},
+		{
+			"node_Ident": 19,
+			"hostName": "Internet",
+			"type": "Host External",
+			"firmware": "",
+			"operatingSystem": 
+			{
+				"patches": [],
+				"application": [],
+				"osClass": {
+            		"vendor": "Linux",
+            		"family": "Kali",
+            		"generation": "2019"
+        		},
+				"user": [
+		            {
+		              "role": "User",
+		              "name": "florin",
+		              "fullName": "florin tanasache",
+		              "group": "users"
+		            },
+		            {
+		              "role": "Root",
+		              "name": "root",
+		              "fullName": "root",
+		              "group": "root"
+		            }
+		        ]
+			},
+			"networkInterfaces": [
+				{
+					"name": "eth0",
+					"macAddress": "02-00-AA-AA-08-3C",
+					"IPInterface": {
+						"subnet_mask": "255.255.255.0",
+						"address": "140.50.20.6",
+						"version": "IPV4",
+						"IPPorts": [      		
+	                  	]
+	            	},
+	            	"reached_nodes": [
+	                	{
+	                		"node": "ext1",
+	                		"CVE": [
+								{
+				            		"CVE": "CVE-2019-36",
+				            		"PRE": "none",
+				            		"POST": "root",
+				            		"CIA": "high-high-low",
+				            		"AV": "network"
+					            }
+	                		]
+	                	},
+	                	{
+		            		"node": "ext2",
+		            		"CVE": [
+					            {
+				            		"CVE": "CVE-2017-52349",
+									"PRE": "none",
+				            		"POST": "user",
+				            		"CIA": "high-low-none",
+				            		"AV": "network"
+					            }
+		            		]
+		            	}
+	                ]
+	            }
+			]
+		}
+	]
+}

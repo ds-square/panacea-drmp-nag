@@ -1,0 +1,383 @@
+{
+  "environment": "Panacea Emulation Environment - DRMP User Scenario X",
+  "fileType": "Reachability Inventory",
+  "snapshotTime": "123456789",
+  "snapshotId": "cidhs-847363s-8376",
+  "sourceDevices" : [ {
+    "hostName" : "noemasrv01",
+    "id" : "n1",
+    "reachedInterface" : [ {
+      "address" : "192.168.1.203",
+      "lanID" : "1",
+      "name" : "eth0",
+      "reachedDevices" : [ {
+        "address" : "192.168.1.204",
+        "hostName" : "noemagw",
+        "ifaceName" : "eth0",
+        "lanID" : "1",
+        "path" : [ "noemasrv01:eth0", "eth0:noemagw" ],
+        "reachedPorts": [ {
+          "port" : 31337,
+          "protocol" : "TCP",
+          "service" : "halia-server"
+        } ]
+      }, {
+        "address" : "10.100.27.4",
+        "hostName" : "POCT1",
+        "ifaceName" : "eth0",
+        "lanID" : "3",
+        "path" : [ "noemasrv01:eth0", "eth0:SwitchL3ServerFarm:eth1", "eth0:SwitchL3Core:eth1", "eth0:SwitchL3Distribution:eth1", "eth0:POCT1" ],
+        "reachedPorts": [ {
+          "port" : 5555,
+          "protocol" : "TCP",
+          "service" : "halia-client"
+        } ]
+      } ]
+    }, {
+      "address" : "10.152.20.203",
+      "lanID" : "2",
+      "name" : "eth1",
+      "reachedDevices" : [ ]
+    } ]
+  }, {
+    "hostName" : "POCT1",
+    "id" : "n7",
+    "reachedInterface" : [ {
+      "address" : "10.100.27.4",
+      "lanID" : "3",
+      "name" : "eth0",
+      "reachedDevices" : [ {
+        "address" : "10.100.27.4",
+        "hostName" : "POCT1",
+        "ifaceName" : "eth0",
+        "lanID" : "3",
+        "path" : [ "POCT1:eth0", "eth0:POCT1" ],
+        "reachedPorts": [ {
+          "port" : 5555,
+          "protocol" : "TCP",
+          "service" : "halia-client"
+        } ]
+      }, {
+        "address" : "192.168.1.204",
+        "hostName" : "noemagw",
+        "ifaceName" : "eth0",
+        "lanID" : "1",
+        "path" : [ "POCT1:eth0" ],
+        "reachedPorts": [ {
+          "port" : 31337,
+          "protocol" : "TCP",
+          "service" : "halia-server"
+        } ]
+      } ]
+    } ]
+  }, {
+    "hostName" : "Firewall",
+    "id" : "n13",
+    "reachedInterface" : [ {
+      "address" : "10.152.20.1",
+      "lanID" : "2",
+      "name" : "eth0",
+      "reachedDevices" : [ ]
+    }, {
+      "address" : "95.100.100.64",
+      "lanID" : "6",
+      "name" : "eth1",
+      "reachedDevices" : [ ]
+    } ]
+  }, {
+    "hostName" : "SwitchL3ServerFarm",
+    "id" : "n10",
+    "reachedInterface" : [ {
+      "address" : "192.168.1.1",
+      "lanID" : "1",
+      "name" : "eth0",
+      "reachedDevices" : [ {
+        "address" : "192.168.1.204",
+        "hostName" : "noemagw",
+        "ifaceName" : "eth0",
+        "lanID" : "1",
+        "path" : [ "SwitchL3ServerFarm:eth0", "eth0:noemagw" ],
+        "reachedPorts": [ {
+          "port" : 31337,
+          "protocol" : "TCP",
+          "service" : "halia-server"
+        } ]
+      } ]
+    }, {
+      "address" : "192.168.2.37",
+      "lanID" : "4",
+      "name" : "eth1",
+      "reachedDevices" : [ {
+        "address" : "10.100.27.4",
+        "hostName" : "POCT1",
+        "ifaceName" : "eth0",
+        "lanID" : "3",
+        "path" : [ "SwitchL3ServerFarm:eth1", "eth0:SwitchL3Core:eth1", "eth0:SwitchL3Distribution:eth1", "eth0:POCT1" ],
+        "reachedPorts": [ {
+          "port" : 5555,
+          "protocol" : "TCP",
+          "service" : "halia-client"
+        } ]
+      } ]
+    } ]
+  }, {
+    "hostName" : "noemagw",
+    "id" : "n2",
+    "reachedInterface" : [ {
+      "address" : "192.168.1.204",
+      "lanID" : "1",
+      "name" : "eth0",
+      "reachedDevices" : [ {
+        "address" : "192.168.1.204",
+        "hostName" : "noemagw",
+        "ifaceName" : "eth0",
+        "lanID" : "1",
+        "path" : [ "noemagw:eth0", "eth0:noemagw" ],
+        "reachedPorts": [ {
+          "port" : 31337,
+          "protocol" : "TCP",
+          "service" : "halia-server"
+        } ]
+      } ]
+    }, {
+      "address" : "10.152.20.204",
+      "lanID" : "2",
+      "name" : "eth1",
+      "reachedDevices" : [ ]
+    } ]
+  }, {
+    "hostName" : "noemaiish1",
+    "id" : "n3",
+    "reachedInterface" : [ {
+      "address" : "192.168.1.205",
+      "lanID" : "1",
+      "name" : "eth0",
+      "reachedDevices" : [ {
+        "address" : "192.168.1.204",
+        "hostName" : "noemagw",
+        "ifaceName" : "eth0",
+        "lanID" : "1",
+        "path" : [ "noemaiish1:eth0", "eth0:noemagw" ],
+        "reachedPorts": [ {
+          "port" : 31337,
+          "protocol" : "TCP",
+          "service" : "halia-server"
+        } ]
+      } ]
+    }, {
+      "address" : "10.152.20.205",
+      "lanID" : "2",
+      "name" : "eth1",
+      "reachedDevices" : [ ]
+    } ]
+  }, {
+    "hostName" : "SwitchL3Distribution",
+    "id" : "n12",
+    "reachedInterface" : [ {
+      "address" : "192.168.2.42",
+      "lanID" : "5",
+      "name" : "eth0",
+      "reachedDevices" : [ {
+        "address" : "192.168.1.204",
+        "hostName" : "noemagw",
+        "ifaceName" : "eth0",
+        "lanID" : "1",
+        "path" : [ "SwitchL3Distribution:eth0", "eth1:SwitchL3Core:eth0", "eth1:SwitchL3ServerFarm:eth0", "eth0:noemagw" ],
+        "reachedPorts": [ {
+          "port" : 31337,
+          "protocol" : "TCP",
+          "service" : "halia-server"
+        } ]
+      } ]
+    }, {
+      "address" : "10.100.27.1",
+      "lanID" : "3",
+      "name" : "eth1",
+      "reachedDevices" : [ {
+        "address" : "10.100.27.4",
+        "hostName" : "POCT1",
+        "ifaceName" : "eth0",
+        "lanID" : "3",
+        "path" : [ "SwitchL3Distribution:eth1", "eth0:POCT1" ],
+        "reachedPorts": [ {
+          "port" : 5555,
+          "protocol" : "TCP",
+          "service" : "halia-client"
+        } ]
+      } ]
+    } ]
+  }, {
+    "hostName" : "noemagw2",
+    "id" : "n4",
+    "reachedInterface" : [ {
+      "address" : "192.168.1.206",
+      "lanID" : "1",
+      "name" : "eth0",
+      "reachedDevices" : [ {
+        "address" : "192.168.1.204",
+        "hostName" : "noemagw",
+        "ifaceName" : "eth0",
+        "lanID" : "1",
+        "path" : [ "noemagw2:eth0", "eth0:noemagw" ],
+        "reachedPorts": [ {
+          "port" : 31337,
+          "protocol" : "TCP",
+          "service" : "halia-server"
+        } ]
+      } ]
+    }, {
+      "address" : "10.152.20.206",
+      "lanID" : "2",
+      "name" : "eth1",
+      "reachedDevices" : [ ]
+    } ]
+  }, {
+    "hostName" : "noemaiish1x",
+    "id" : "n5",
+    "reachedInterface" : [ {
+      "address" : "192.168.1.207",
+      "lanID" : "1",
+      "name" : "eth0",
+      "reachedDevices" : [ {
+        "address" : "192.168.1.204",
+        "hostName" : "noemagw",
+        "ifaceName" : "eth0",
+        "lanID" : "1",
+        "path" : [ "noemaiish1x:eth0", "eth0:noemagw" ],
+        "reachedPorts": [ {
+          "port" : 31337,
+          "protocol" : "TCP",
+          "service" : "halia-server"
+        } ]
+      }, {
+        "address" : "10.100.27.4",
+        "hostName" : "POCT1",
+        "ifaceName" : "eth0",
+        "lanID" : "3",
+        "path" : [ "noemaiish1x:eth0", "eth0:SwitchL3ServerFarm:eth1", "eth0:SwitchL3Core:eth1", "eth0:SwitchL3Distribution:eth1", "eth0:POCT1" ],
+        "reachedPorts": [ {
+          "port" : 5555,
+          "protocol" : "TCP",
+          "service" : "halia-client"
+        } ]
+      } ]
+    }, {
+      "address" : "10.152.20.207",
+      "lanID" : "2",
+      "name" : "eth1",
+      "reachedDevices" : [ ]
+    } ]
+  }, {
+    "hostName" : "noematomcathal",
+    "id" : "n6",
+    "reachedInterface" : [ {
+      "address" : "192.168.1.208",
+      "lanID" : "1",
+      "name" : "eth0",
+      "reachedDevices" : [ {
+        "address" : "192.168.1.204",
+        "hostName" : "noemagw",
+        "ifaceName" : "eth0",
+        "lanID" : "1",
+        "path" : [ "noematomcathal:eth0", "eth0:noemagw" ],
+        "reachedPorts": [ {
+          "port" : 31337,
+          "protocol" : "TCP",
+          "service" : "halia-server"
+        } ]
+      }, {
+        "address" : "10.100.27.4",
+        "hostName" : "POCT1",
+        "ifaceName" : "eth0",
+        "lanID" : "3",
+        "path" : [ "noematomcathal:eth0", "eth0:SwitchL3ServerFarm:eth1", "eth0:SwitchL3Core:eth1", "eth0:SwitchL3Distribution:eth1", "eth0:POCT1" ],
+        "reachedPorts": [ {
+          "port" : 5555,
+          "protocol" : "TCP",
+          "service" : "halia-client"
+        } ]
+      } ]
+    }, {
+      "address" : "10.152.20.208",
+      "lanID" : "2",
+      "name" : "eth1",
+      "reachedDevices" : [ ]
+    } ]
+  }, {
+    "hostName" : "PC2",
+    "id" : "n9",
+    "reachedInterface" : [ {
+      "address" : "10.100.27.3",
+      "lanID" : "3",
+      "name" : "eth0",
+      "reachedDevices" : [ {
+        "address" : "10.100.27.4",
+        "hostName" : "POCT1",
+        "ifaceName" : "eth0",
+        "lanID" : "3",
+        "path" : [ "PC2:eth0", "eth0:POCT1" ],
+        "reachedPorts": [ {
+          "port" : 5555,
+          "protocol" : "TCP",
+          "service" : "halia-client"
+        } ]
+      } ]
+    } ]
+  }, {
+    "hostName" : "SwitchL3Core",
+    "id" : "n11",
+    "reachedInterface" : [ {
+      "address" : "192.168.2.38",
+      "lanID" : "4",
+      "name" : "eth0",
+      "reachedDevices" : [ {
+        "address" : "192.168.1.204",
+        "hostName" : "noemagw",
+        "ifaceName" : "eth0",
+        "lanID" : "1",
+        "path" : [ "SwitchL3Core:eth0", "eth1:SwitchL3ServerFarm:eth0", "eth0:noemagw" ],
+        "reachedPorts": [ {
+          "port" : 31337,
+          "protocol" : "TCP",
+          "service" : "halia-server"
+        } ]
+      } ]
+    }, {
+      "address" : "192.168.2.41",
+      "lanID" : "5",
+      "name" : "eth1",
+      "reachedDevices" : [ {
+        "address" : "10.100.27.4",
+        "hostName" : "POCT1",
+        "ifaceName" : "eth0",
+        "lanID" : "3",
+        "path" : [ "SwitchL3Core:eth1", "eth0:SwitchL3Distribution:eth1", "eth0:POCT1" ],
+        "reachedPorts": [ {
+          "port" : 5555,
+          "protocol" : "TCP",
+          "service" : "halia-client"
+        } ]
+      } ]
+    } ]
+  }, {
+    "hostName" : "PC1",
+    "id" : "n8",
+    "reachedInterface" : [ {
+      "address" : "10.100.27.2",
+      "lanID" : "3",
+      "name" : "eth0",
+      "reachedDevices" : [ {
+        "address" : "10.100.27.4",
+        "hostName" : "POCT1",
+        "ifaceName" : "eth0",
+        "lanID" : "3",
+        "path" : [ "PC1:eth0", "eth0:POCT1" ],
+        "reachedPorts": [ {
+          "port" : 5555,
+          "protocol" : "TCP",
+          "service" : "halia-client"
+        } ]
+      } ]
+    } ]
+  } ]
+}
